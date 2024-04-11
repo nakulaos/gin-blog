@@ -2,6 +2,7 @@ mysql:
   host: 127.0.0.1
   port: 3306
   db: gvb_db
+  config: charset=utf8mb4&parseTime=True
   user: root
   password: 1310138359
   log_level: dev
