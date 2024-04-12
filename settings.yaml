@@ -16,3 +16,20 @@ system:
   host: 127.0.0.1
   port: 8080
   env: release
+site_info:
+  created_at: "2024-05-01"
+  bei_an: 鲁ICP备2024080111号-1
+  title: 智超的个人博客
+  qq_image:
+  version: 1.0.0
+  email: zhichaodeng2023@163.com
+  wechat_image:
+  name: 邓智超
+  job: golang
+  addr: 现居浙江杭州
+  slogan: 冲冲冲
+  slogan_en: fighting!
+  web: http://www.baidu.com
+  bilibili_url:
+  gitee_url:
+  github_url:
