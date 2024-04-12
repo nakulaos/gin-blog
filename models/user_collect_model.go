@@ -2,9 +2,9 @@ package models
 
 import "time"
 
-//User2Collects 自定义三张表,记录用户什么时候收藏了什么文章
+//UserCollectModel 自定义三张表,记录用户什么时候收藏了什么文章
 
-type User2Collects struct {
+type UserCollectModel struct {
 	UserID       uint         `gorm:"primaryKey"`
 	UserModel    UserModel    `gorm:"foreignKey:UserID" `
 	ArticleID    uint         `gorm:"primaryKey" `

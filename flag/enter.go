@@ -16,14 +16,12 @@ func Parse() Option {
 	}
 }
 
-// IsWebStop 是否停止web项目
+// IsWebStop db为true，则停止web项目，只是数据迁移
 func IsWebStop(option Option) bool {
-	if option.DB {
-		return false
-	}
-	return true
+	return option.DB
 }
 
+// 根据命令执行不同的函数
 func SwitchOption(option Option) {
 	if option.DB {
 		MakeMigrations()
