@@ -16,33 +16,10 @@ system:
   host: 127.0.0.1
   port: 8080
   env: release
-jwt:
-  secret: dengzhichao
-  expires: 30
-  issuer: xxx
-email:
-  host: smtp.qq.com
-  port: 213
-  user: 1310138359@qq.com
-  password: xxx
-  default_from_email: 智超知道
-  use_ssl: xx
-  user_tls: xx
-qiniu:
-  access_key:
-  secret_key:
-  bucket:
-  cdn:
-  zone:
-  size:
-qq:
-  app_id:
-  key:
-  redirect:
 site_info:
   created_at: "2024-05-01"
   bei_an: 鲁ICP备2024080111号-1
-  title: 智超的个人博客
+  title: 邓智超的个人博客
   qq_image: ""
   version: 1.0.0
   email: zhichaodeng2023@163.com
@@ -56,3 +33,26 @@ site_info:
   bilibili_url: 小超同学dz
   gitee_url: ""
   github_url: zhichao2000
+qq:
+  app_id: ""
+  key: ""
+  redirect: ""
+email:
+  host: smtp.qq.com
+  port: 213
+  user: 1310138359@qq.com
+  password: xxx
+  default_from_email: 智超知道
+  use_ssl: false
+  user_tls: true
+qiniu:
+  access_key: ""
+  secret_key: ""
+  bucket: ""
+  cdn: ""
+  zone: ""
+  size: 0
+jwt:
+  secret: dengzhichao
+  expires: 30
+  issuer: xxx

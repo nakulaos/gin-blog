@@ -9,12 +9,51 @@ import (
 )
 
 func (s *SettingsApi) SettingsInfoUpdateView(c *gin.Context) {
-	var siteinfo config.SiteInfo
-	if err := c.ShouldBindJSON(&siteinfo); err != nil {
-		res.FailWithCode(res.ParameterError, c)
+	name := c.Param("name")
+
+	switch name {
+	case "siteinfo":
+		choice := config.SiteInfo{}
+		if err := c.ShouldBindJSON(&choice); err != nil {
+			res.FailWithCode(res.ParameterError, c)
+			return
+		}
+		global.Config.SiteInfo = choice
+		core.UpdateYaml(c)
+	case "email":
+		choice := config.Email{}
+		if err := c.ShouldBindJSON(&choice); err != nil {
+			res.FailWithCode(res.ParameterError, c)
+			return
+		}
+		global.Config.Email = choice
+		core.UpdateYaml(c)
+	case "qq":
+		choice := config.QQ{}
+		if err := c.ShouldBindJSON(&choice); err != nil {
+			res.FailWithCode(res.ParameterError, c)
+			return
+		}
+		global.Config.QQ = choice
+		core.UpdateYaml(c)
+	case "qiniu":
+		choice := config.QiNiu{}
+		if err := c.ShouldBindJSON(&choice); err != nil {
+			res.FailWithCode(res.ParameterError, c)
+			return
+		}
+		global.Config.QiNiu = choice
+		core.UpdateYaml(c)
+	case "jwt":
+		choice := config.Jwt{}
+		if err := c.ShouldBindJSON(&choice); err != nil {
+			res.FailWithCode(res.ParameterError, c)
+			return
+		}
+		global.Config.Jwt = choice
+		core.UpdateYaml(c)
+	default:
 		return
 	}
-	global.Config.SiteInfo = siteinfo
-	core.UpdateYaml(c)
 
 }
