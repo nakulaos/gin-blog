@@ -3,6 +3,7 @@ package main
 import (
 	"gvb_server/core"
 	"gvb_server/global"
+	"gvb_server/routers"
 )
 
 func main() {
@@ -10,11 +11,11 @@ func main() {
 	core.InitConf()
 	//初始化logrus
 	core.InitLogger()
-	global.Log.Warnln("aa")
-	global.Log.Error("aa")
-	global.Log.Infof("aa")
-
 	//连接数据库，初始化gorm
 	core.InitGorm()
+	//初始化路由
+	enter := routers.InitRouter()
+	global.Log.Infof("项目运行在:%s", global.Config.System.Addr())
+	enter.Run(global.Config.System.Addr())
 
 }
