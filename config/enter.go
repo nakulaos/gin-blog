@@ -5,4 +5,8 @@ type Config struct {
 	Logger   Logger   `yaml:"logger"`
 	System   System   `yaml:"system"`
 	SiteInfo SiteInfo `yaml:"site_info"`
+	QQ       QQ       `yaml:"qq"`
+	Email    Email    `yaml:"email"`
+	QiNiu    QiNiu    `yaml:"qiniu"`
+	Jwt      Jwt      `yaml:"jwt"`
 }
