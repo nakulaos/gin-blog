@@ -7,9 +7,10 @@ import (
 
 func InitRouter() *gin.Engine {
 	gin.SetMode(global.Config.System.Env)
-	router := gin.Default()
-	router.GET("", func(c *gin.Context) {
-		c.JSON(200, gin.H{})
-	})
-	return router
+	Enter := gin.Default()
+
+	EnterApi := Enter.Group("/api")
+	SettingsRouter(EnterApi)
+
+	return Enter
 }
