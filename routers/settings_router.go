@@ -8,4 +8,5 @@ import (
 func SettingsRouter(enter *gin.RouterGroup) {
 	settingsApi := api.ApiGroupApp.SettingsApi
 	enter.GET("/settings", settingsApi.SettingsInfoView)
+	enter.PUT("/settings", settingsApi.SettingsInfoUpdateView)
 }

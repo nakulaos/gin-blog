@@ -1,10 +1,10 @@
 mysql:
   host: 127.0.0.1
   port: 3306
-  db: gvb_db
   config: charset=utf8mb4&parseTime=True
+  db: gvb_db
   user: root
-  password: 1310138359
+  password: "1310138359"
   log_level: dev
 logger:
   level: info
@@ -18,18 +18,18 @@ system:
   env: release
 site_info:
   created_at: "2024-05-01"
-  bei_an: Â³ICP±¸2024080111ºÅ-1
-  title: ÖÇ³¬µÄ¸öÈË²©¿Í
-  qq_image:
+  bei_an: é²ICPå¤‡2024080111å·-1
+  title: æ™ºè¶…çš„ä¸ªäººåšå®¢
+  qq_image: ""
   version: 1.0.0
   email: zhichaodeng2023@163.com
-  wechat_image:
-  name: µËÖÇ³¬
+  wechat_image: ""
+  name: é‚“æ™ºè¶…
   job: golang
-  addr: ÏÖ¾ÓÕã½­º¼Öİ
-  slogan: ³å³å³å
+  addr: ç°å±…æµ™æ±Ÿæ­å·
+  slogan: å†²å†²å†²
   slogan_en: fighting!
   web: http://www.baidu.com
-  bilibili_url:
-  gitee_url:
-  github_url:
+  bilibili_url: å°è¶…åŒå­¦dz
+  gitee_url: ""
+  github_url: zhichao2000
