@@ -2,34 +2,24 @@ package images_api
 
 import (
 	"github.com/gin-gonic/gin"
-	"gvb_server/global"
 	"gvb_server/models"
 	"gvb_server/models/res"
+	"gvb_server/service/common"
 )
 
-type Page struct {
-	Page  int    `form:"page"`
-	Limit int    `form:"limit"`
-	Key   string `form:"key"`
-	Sort  string `form:"sort"`
-}
-
 func (img ImagesApi) ImageListView(c *gin.Context) {
-	var cr Page
+	var cr models.PageInfo
 	if err := c.ShouldBindQuery(&cr); err != nil {
 		res.FailWithCode(res.ParameterError, c)
 		return
 	}
-	var imagesList []models.BannerModel
-
-	count := global.DB.Find(&imagesList).RowsAffected
-	offset := (cr.Page - 1) * cr.Limit
-	if offset < 0 {
-		offset = 0
+	imagesList, count, err := common.CommonList(models.BannerModel{}, common.Option{
+		PageInfo: cr,
+		Debug:    true,
+	})
+	if err != nil {
+		return
 	}
-	global.DB.Limit(cr.Limit).Offset(offset).Find(&imagesList)
-	res.OkWithData(gin.H{
-		"count": count,
-		"list":  imagesList,
-	}, c)
+	res.OkWithList(imagesList, count, c)
+
 }
