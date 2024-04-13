@@ -16,6 +16,9 @@ system:
   host: 127.0.0.1
   port: 8080
   env: release
+local_upload:
+  upload_file_path: uploads/file
+  size: 2
 site_info:
   created_at: "2024-05-01"
   bei_an: 鲁ICP备2024080111号-1
