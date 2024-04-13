@@ -35,7 +35,7 @@ func OkWithMessage(msg string, c *gin.Context) {
 
 }
 func OkWithSimpleContext(c *gin.Context) {
-	Result(Success, map[string]any{}, "成功!", c)
+	Result(Success, map[string]any{}, "", c)
 }
 func Fail(data any, msg string, c *gin.Context) {
 	Result(Error, data, msg, c)
