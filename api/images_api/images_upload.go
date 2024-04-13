@@ -99,11 +99,14 @@ func (sr *ImagesApi) ImagesUploadView(c *gin.Context) {
 		})
 
 		//图片入库
-		global.DB.Create(&models.BannerModel{
-			Path: TargetFilePath,
-			Hash: ImageHash,
-			Name: image.Filename,
-		})
+		if success {
+			global.DB.Create(&models.BannerModel{
+				Path: TargetFilePath,
+				Hash: ImageHash,
+				Name: image.Filename,
+			})
+		}
+
 	}
 	res.OkWithData(resSlice, c)
 }
