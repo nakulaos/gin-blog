@@ -21,6 +21,9 @@ func CommonList[T any](model T, option Option) (list []T, count int64, err error
 	if offset < 0 {
 		offset = 0
 	}
-	err = DB.Limit(option.Limit).Offset(offset).Find(&list).Error
+	if option.Sort == "" {
+		option.Sort = "created_at desc"
+	}
+	err = DB.Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
 	return
 }
