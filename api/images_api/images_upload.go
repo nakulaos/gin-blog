@@ -5,12 +5,17 @@ import (
 	"github.com/gin-gonic/gin"
 	"gvb_server/global"
 	"gvb_server/models"
+	"gvb_server/models/ctype"
 	"gvb_server/models/res"
+	"gvb_server/plugins/qiniu"
 	"gvb_server/utils"
 	"io"
+	"math/rand"
 	"mime/multipart"
 	"path/filepath"
+	"strconv"
 	"strings"
+	"time"
 )
 
 var FileMap = map[string]string{
@@ -83,10 +88,36 @@ func (imagesApi *ImagesApi) ImagesUploadView(c *gin.Context) {
 			})
 			continue
 		}
+		if global.Config.QiNiu.Enable {
+			Filepath, err := qiniu.UploadImage(byteData, image.Filename, "Dzc")
+			if err != nil {
+				global.Log.Error(err)
+				resSlice = append(resSlice, ResUploadLocal{
+					Msg:       fmt.Sprintf("上传第%d张图片到七牛云失败%s!", index+1, err.Error()),
+					IsSuccess: true,
+					FileName:  Filepath,
+				})
+				continue
+			}
+			resSlice = append(resSlice, ResUploadLocal{
+				Msg:       fmt.Sprintf("上传第%d张图片到七牛云成功!", index+1),
+				IsSuccess: true,
+				FileName:  Filepath,
+			})
+			//图片入库
+			global.DB.Create(&models.BannerModel{
+				Path:             Filepath,
+				Hash:             ImageHash,
+				Name:             image.Filename,
+				ImagesStorgeType: ctype.QiNiu,
+			})
+			continue
+		}
 		//数据库中没这张图片
 		msg := "上传成功"
 		success := true
-		TargetFilePath := filepath.Join(global.Config.LocalUpload.UploadFilePath, image.Filename)
+		newFileName := time.Now().Format("20130506150607") + "_" + strconv.Itoa(int(rand.Int31n(10001))) + "_" + image.Filename
+		TargetFilePath := filepath.Join(global.Config.LocalUpload.UploadFilePath, newFileName)
 		if err := c.SaveUploadedFile(image, TargetFilePath); err != nil {
 			global.Log.Error(fmt.Sprintf("上传第%d张图片失败"), index+1)
 			msg = "上传失败"
@@ -101,9 +132,10 @@ func (imagesApi *ImagesApi) ImagesUploadView(c *gin.Context) {
 		//图片入库
 		if success {
 			global.DB.Create(&models.BannerModel{
-				Path: TargetFilePath,
-				Hash: ImageHash,
-				Name: image.Filename,
+				Path:             TargetFilePath,
+				Hash:             ImageHash,
+				Name:             image.Filename,
+				ImagesStorgeType: ctype.Local,
 			})
 		}
 

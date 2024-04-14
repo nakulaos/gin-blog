@@ -49,12 +49,13 @@ email:
   use_ssl: false
   user_tls: true
 qiniu:
-  access_key: ""
-  secret_key: ""
-  bucket: ""
-  cdn: ""
-  zone: ""
-  size: 0
+  enable: false
+  access_key: N3u3KYmFb4J35SaUt_m1GIG5Ndl-EQjHY3MFnXnN
+  secret_key: efi-XifczQfesM2plHKj-sKRjOu8DEgoXGcnZZIv
+  bucket: chaochaozhidao
+  cdn: qiniu.cdn.dzcs.online
+  zone: z0
+  size: 4
 jwt:
   secret: dengzhichao
   expires: 30
