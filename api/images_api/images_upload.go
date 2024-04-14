@@ -29,7 +29,7 @@ type ResUploadLocal struct {
 	FileName  string `json:"file_name"`
 }
 
-func (sr *ImagesApi) ImagesUploadView(c *gin.Context) {
+func (imagesApi *ImagesApi) ImagesUploadView(c *gin.Context) {
 	var multipartFile *multipart.Form
 	var err error
 	if multipartFile, err = c.MultipartForm(); err != nil {

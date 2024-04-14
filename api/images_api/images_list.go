@@ -7,7 +7,7 @@ import (
 	"gvb_server/service/common"
 )
 
-func (img ImagesApi) ImageListView(c *gin.Context) {
+func (imagesApi ImagesApi) ImageListView(c *gin.Context) {
 	var cr models.PageInfo
 	if err := c.ShouldBindQuery(&cr); err != nil {
 		res.FailWithCode(res.ParameterError, c)
