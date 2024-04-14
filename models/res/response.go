@@ -2,6 +2,7 @@ package res
 
 import (
 	"github.com/gin-gonic/gin"
+	"gvb_server/utils"
 	"net/http"
 )
 
@@ -49,6 +50,10 @@ func OkWithSimpleContext(c *gin.Context) {
 }
 func Fail(data any, msg string, c *gin.Context) {
 	Result(Error, data, msg, c)
+}
+func FailWithMyMessage(obj any, err error, c *gin.Context) {
+	msg := utils.GetValidMsg(obj, err)
+	FailWithMessage(msg, c)
 }
 func FailWithMessage(msg string, c *gin.Context) {
 	Result(Error, map[string]any{}, msg, c)
