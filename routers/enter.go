@@ -12,6 +12,7 @@ func InitRouter() *gin.Engine {
 	EnterApi := Enter.Group("/api")
 	SettingsRouter(EnterApi)
 	ImageRouter(EnterApi)
+	AdvertiseRouter(EnterApi)
 
 	return Enter
 }

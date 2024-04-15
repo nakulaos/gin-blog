@@ -16,7 +16,7 @@ func CommonList[T any](model T, option Option) (list []T, count int64, err error
 	if option.Debug {
 		DB = global.DB.Session(&gorm.Session{Logger: global.MysqlLog})
 	}
-	count = DB.Select("id").Find(&list).RowsAffected
+	count = DB.Where(&model).Select("id").Find(&list).RowsAffected
 	offset := (option.Page - 1) * option.Limit
 	if offset < 0 {
 		offset = 0
@@ -24,6 +24,6 @@ func CommonList[T any](model T, option Option) (list []T, count int64, err error
 	if option.Sort == "" {
 		option.Sort = "created_at desc"
 	}
-	err = DB.Limit(option.Limit).Offset(offset).Order(option.Sort).Find(&list).Error
+	err = DB.Limit(option.Limit).Offset(offset).Order(option.Sort).Where(&model).Find(&list).Error
 	return
 }
