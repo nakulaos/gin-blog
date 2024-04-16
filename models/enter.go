@@ -5,7 +5,7 @@ import "time"
 type MODEL struct {
 	ID        uint       `gorm:"primarykey" json:"id"`
 	CreatedAt time.Time  `json:"created_at"`
-	UpdateAt  *time.Time `json:"-"`
+	UpdateAt  *time.Time `json:"-"  gorm:"autoUpdateTime"`
 }
 type RemoveRequest struct {
 	IDList []uint `json:"id_list"`

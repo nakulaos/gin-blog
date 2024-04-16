@@ -1,6 +1,7 @@
 package advert_api
 
 import (
+	"github.com/fatih/structs"
 	"github.com/gin-gonic/gin"
 	"gvb_server/global"
 	"gvb_server/models"
@@ -23,11 +24,8 @@ func (advertiseApi AdvertiseApi) AdvertiseUpdateView(c *gin.Context) {
 		res.FailWithMessage("没有这个id的广告", c)
 		return
 	}
-	err = global.DB.Model(&advert).Updates(map[string]any{
-		"title":   cr.Title,
-		"href":    cr.Href,
-		"images":  cr.Images,
-		"is_show": cr.IsShow}).Error
+	maps := structs.Map(&cr)
+	err = global.DB.Model(&advert).Updates(maps).Error
 	if err != nil {
 		global.Log.Error(err)
 		res.FailWithMessage("更新广告失败！", c)

@@ -10,4 +10,5 @@ func AdvertiseRouter(enter *gin.RouterGroup) {
 	enter.POST("/advert", advertiseApi.AdvertiseCreateView)
 	enter.GET("/advert", advertiseApi.AdvertiseListView)
 	enter.PUT("/advert/:id", advertiseApi.AdvertiseUpdateView)
+	enter.DELETE("/advert", advertiseApi.AdvertiseDeleteApi)
 }
