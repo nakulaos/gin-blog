@@ -1,6 +1,6 @@
 package models
 
-// MenuBannerMode l自定义菜单和背景图的连接表，方便排序
+// MenuBannerModel 自定义菜单和背景图的连接表，方便排序
 type MenuBannerModel struct {
 	MenuID      uint        `json:"menu_id"`             //
 	MenuModel   MenuModel   `gorm:"foreignKey:MenuID"`   //
