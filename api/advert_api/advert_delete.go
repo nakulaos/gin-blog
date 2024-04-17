@@ -25,5 +25,6 @@ func (advertiseApi AdvertiseApi) AdvertiseDeleteApi(c *gin.Context) {
 		res.FailWithMessage(err.Error(), c)
 		return
 	}
+
 	res.OkWithMessage("删除成功！", c)
 }

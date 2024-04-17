@@ -14,6 +14,14 @@ type AdvertiseRequest struct {
 	IsShow *bool  `json:"is_show" binding:"required" msg:"请选择是否展示"`       //
 }
 
+// @AdvertCreateView 添加一条广告
+// @Tags 广告管理
+// @Summary 创建广告
+// @Description 创建一条广告
+// @Param data body AdvertiseRequest  true "表示多个参数"
+// @Router /api/advert [post]
+// @Produce json
+// @Success 200 {object} res.Response{}
 func (advertiseApi *AdvertiseApi) AdvertiseCreateView(c *gin.Context) {
 	var cr AdvertiseRequest
 	err := c.ShouldBindJSON(&cr)
