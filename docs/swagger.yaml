@@ -16,6 +16,17 @@ definitions:
     - is_show
     - title
     type: object
+  images_api.ImagesResponse:
+    properties:
+      id:
+        type: integer
+      name:
+        description: 图片名称
+        type: string
+      path:
+        description: 图片路径
+        type: string
+    type: object
   models.AdvertModel:
     properties:
       created_at:
@@ -34,6 +45,15 @@ definitions:
       title:
         description: 显示的标题
         type: string
+    type: object
+  res.ListResponse-array_images_api_ImagesResponse:
+    properties:
+      count:
+        type: integer
+      list:
+        items:
+          $ref: '#/definitions/images_api.ImagesResponse'
+        type: array
     type: object
   res.ListResponse-models_AdvertModel:
     properties:
@@ -107,4 +127,22 @@ paths:
       summary: 创建广告
       tags:
       - 广告管理
+  /api/images_names:
+    get:
+      description: 查询图片名称列表
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            allOf:
+            - $ref: '#/definitions/res.Response'
+            - properties:
+                data:
+                  $ref: '#/definitions/res.ListResponse-array_images_api_ImagesResponse'
+              type: object
+      summary: 图片名称
+      tags:
+      - 图片名称查询
 swagger: "2.0"

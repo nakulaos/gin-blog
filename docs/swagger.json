@@ -91,6 +91,38 @@
                     }
                 }
             }
+        },
+        "/api/images_names": {
+            "get": {
+                "description": "查询图片名称列表",
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "图片名称查询"
+                ],
+                "summary": "图片名称",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "allOf": [
+                                {
+                                    "$ref": "#/definitions/res.Response"
+                                },
+                                {
+                                    "type": "object",
+                                    "properties": {
+                                        "data": {
+                                            "$ref": "#/definitions/res.ListResponse-array_images_api_ImagesResponse"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -113,6 +145,22 @@
                     "type": "boolean"
                 },
                 "title": {
+                    "type": "string"
+                }
+            }
+        },
+        "images_api.ImagesResponse": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "图片名称",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "图片路径",
                     "type": "string"
                 }
             }
@@ -141,6 +189,20 @@
                 "title": {
                     "description": "显示的标题",
                     "type": "string"
+                }
+            }
+        },
+        "res.ListResponse-array_images_api_ImagesResponse": {
+            "type": "object",
+            "properties": {
+                "count": {
+                    "type": "integer"
+                },
+                "list": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/images_api.ImagesResponse"
+                    }
                 }
             }
         },
