@@ -18,6 +18,7 @@ func InitRouter() *gin.Engine {
 	SettingsRouter(EnterApi)
 	ImageRouter(EnterApi)
 	AdvertiseRouter(EnterApi)
+	MenuRouter(EnterApi)
 
 	return Enter
 }
