@@ -58,5 +58,5 @@ qiniu:
   size: 4
 jwt:
   secret: dengzhichao
-  expires: 30
+  expires: 2
   issuer: xxx

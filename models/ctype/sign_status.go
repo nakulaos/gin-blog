@@ -5,7 +5,7 @@ import "encoding/json"
 type SignStatus int
 
 const (
-	StatusQQ  SignStatus = 1
+	SignQQ    SignStatus = 1
 	SignGitee SignStatus = 2
 	SignEmail SignStatus = 3
 )
@@ -16,7 +16,7 @@ func (s SignStatus) MarshalJSON() ([]byte, error) {
 func (r SignStatus) String() string {
 	var str string
 	switch r {
-	case StatusQQ:
+	case SignQQ:
 		str = "QQ"
 	case SignGitee:
 		str = "Gitee"
