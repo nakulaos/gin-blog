@@ -14,14 +14,14 @@ type ImageSort struct {
 	Sort    int  `json:"sort"`
 }
 type MenuRequest struct {
-	MenuTitle     string      `json:"menu_title" binding:"required" msg:"请输入菜单标题"`      //
-	MenuTitleEn   string      `json:"menu_title_en" binding:"required" msg:"请输入菜单英文标题"` //
-	Slogan        string      `json:"slogan"`                                           //
-	Abstract      ctype.Array `json:"abstract"`                                         //
-	AbstractTime  int         `json:"abstract_time"`                                    //切换的时间,单位 秒
-	BannerTime    int         `json:"banner_time"`                                      //切换的时间，单位 秒
-	Sort          int         `json:"sort" binding:"required" msg:"请输入菜单的序号"`           //菜单的序号
-	ImageSortList []ImageSort `json:"image_sort_list"`                                  //具体图片的顺序
+	Title         string      `json:"title" binding:"required" msg:"请输入菜单标题"`  //
+	Path          string      `json:"path" binding:"required" msg:"请输入菜单英文标题"` //
+	Slogan        string      `json:"slogan"`                                  //
+	Abstract      ctype.Array `json:"abstract"`                                //
+	AbstractTime  int         `json:"abstract_time"`                           //切换的时间,单位 秒
+	BannerTime    int         `json:"banner_time"`                             //切换的时间，单位 秒
+	Sort          int         `json:"sort" binding:"required" msg:"请输入菜单的序号"`  //菜单的序号
+	ImageSortList []ImageSort `json:"image_sort_list"`                         //具体图片的顺序
 }
 type ResMenuBanner struct {
 	Msg    string `json:"msg"`
@@ -36,9 +36,9 @@ func (menuApi MenuApi) MenuCreateView(c *gin.Context) {
 	}
 
 	//先查有没有这个菜单
-	err := global.DB.Take(&models.MenuModel{}, "menu_title = ? and menu_title_en = ?", cr.MenuTitle, cr.MenuTitleEn).Error
+	err := global.DB.Take(&models.MenuModel{}, "title = ?", cr.Title).Error
 	if err == nil {
-		res.FailWithMessage("已经有这个菜单标题了(中英都重复了),换其中一个就可以!", c)
+		res.FailWithMessage("已经有这个菜单标题了!", c)
 		return
 	}
 	//sort不能重复
@@ -54,8 +54,8 @@ func (menuApi MenuApi) MenuCreateView(c *gin.Context) {
 		return
 	}*/
 	menu := models.MenuModel{
-		MenuTitle:    cr.MenuTitle,
-		MenuTitleEn:  cr.MenuTitleEn,
+		Title:        cr.Title,
+		Path:         cr.Path,
 		Slogan:       cr.Slogan,
 		Abstract:     cr.Abstract,
 		AbstractTime: cr.AbstractTime,
