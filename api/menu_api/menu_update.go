@@ -44,8 +44,8 @@ func (menuApi MenuApi) MenuUpdateView(c *gin.Context) {
 
 	//普通更新menu
 	maps := structs.Map(&cr)
-	if err := global.DB.Model(&models.MenuModel{}).Updates(maps); err != nil {
-		res.FailWithMessage("更新广告失败！", c)
+	if err := global.DB.Model(&menuModel).Updates(maps).Error; err != nil {
+		res.FailWithMessage("菜单更新失败！", c)
 		return
 	}
 	res.OkWithMessage("修改广告成功!", c)

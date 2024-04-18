@@ -11,4 +11,5 @@ func MenuRouter(enter *gin.RouterGroup) {
 	enter.GET("/menu", MenuApi.MenuListView)
 	enter.GET("/menu_names", MenuApi.MenuNameListView)
 	enter.PUT("/menu/:id", MenuApi.MenuUpdateView)
+	enter.DELETE("/menu", MenuApi.MenuDeleteView)
 }

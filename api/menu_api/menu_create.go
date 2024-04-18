@@ -15,7 +15,7 @@ type ImageSort struct {
 }
 type MenuRequest struct {
 	Title         string      `json:"title" binding:"required" msg:"请输入菜单标题" structs:"title"` //
-	Path          string      `json:"path" binding:"required" msg:"请输入菜单英文标题" structs:"path"` //
+	Path          string      `json:"path" binding:"required" msg:"请输入菜单路径" structs:"path"`   //
 	Slogan        string      `json:"slogan" structs:"slogan"`                                //
 	Abstract      ctype.Array `json:"abstract" structs:"abstract"`                            //
 	AbstractTime  int         `json:"abstract_time" structs:"abstract_time"`                  //切换的时间,单位 秒

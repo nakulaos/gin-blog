@@ -5,7 +5,7 @@ import "gvb_server/models/ctype"
 // 菜单表
 type MenuModel struct {
 	MODEL
-	Title        string        `gorm:"size:32" json:"itle"`                                                                       //
+	Title        string        `gorm:"size:32" json:"title"`                                                                      //
 	Path         string        `gorm:"size:32" json:"path"`                                                                       //
 	Slogan       string        `gorm:"size:64" json:"slogan"`                                                                     //口号
 	Abstract     ctype.Array   `gorm:"type:string" json:"abstract"`                                                               //简介
