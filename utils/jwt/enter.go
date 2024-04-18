@@ -9,7 +9,7 @@ import (
 
 // JWT的payload 中的数据
 type JwtPayLoad struct {
-	Username string `json:"username"` //
+	//Username string `json:"username"` //
 	Nickname string `json:"nickname"` //
 	Role     int    `json:"role"`     //
 	UserID   uint   `json:"user_id"`  //
