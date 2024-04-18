@@ -14,14 +14,14 @@ type ImageSort struct {
 	Sort    int  `json:"sort"`
 }
 type MenuRequest struct {
-	Title         string      `json:"title" binding:"required" msg:"请输入菜单标题"`  //
-	Path          string      `json:"path" binding:"required" msg:"请输入菜单英文标题"` //
-	Slogan        string      `json:"slogan"`                                  //
-	Abstract      ctype.Array `json:"abstract"`                                //
-	AbstractTime  int         `json:"abstract_time"`                           //切换的时间,单位 秒
-	BannerTime    int         `json:"banner_time"`                             //切换的时间，单位 秒
-	Sort          int         `json:"sort" binding:"required" msg:"请输入菜单的序号"`  //菜单的序号
-	ImageSortList []ImageSort `json:"image_sort_list"`                         //具体图片的顺序
+	Title         string      `json:"title" binding:"required" msg:"请输入菜单标题" structs:"title"` //
+	Path          string      `json:"path" binding:"required" msg:"请输入菜单英文标题" structs:"path"` //
+	Slogan        string      `json:"slogan" structs:"slogan"`                                //
+	Abstract      ctype.Array `json:"abstract" structs:"abstract"`                            //
+	AbstractTime  int         `json:"abstract_time" structs:"abstract_time"`                  //切换的时间,单位 秒
+	BannerTime    int         `json:"banner_time" structs:"banner_time"`                      //切换的时间，单位 秒
+	Sort          int         `json:"sort" binding:"required" msg:"请输入菜单的序号" structs:"sort"`  //菜单的序号
+	ImageSortList []ImageSort `json:"image_sort_list" structs:"-"`                            //具体图片的顺序
 }
 type ResMenuBanner struct {
 	Msg    string `json:"msg"`

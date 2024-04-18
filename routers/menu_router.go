@@ -9,5 +9,6 @@ func MenuRouter(enter *gin.RouterGroup) {
 	MenuApi := api.ApiGroupApp.MenuApi
 	enter.POST("/menu", MenuApi.MenuCreateView)
 	enter.GET("/menu", MenuApi.MenuListView)
-	enter.GET("/menu_name", MenuApi.MenuNameListView)
+	enter.GET("/menu_names", MenuApi.MenuNameListView)
+	enter.PUT("/menu/:id", MenuApi.MenuUpdateView)
 }
