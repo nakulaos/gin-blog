@@ -11,16 +11,9 @@ import (
 )
 
 func (userApi UserApi) UserListView(c *gin.Context) {
-	token := c.GetHeader("token")
-	if token == "" {
-		res.FailWithMessage("请输入token", c)
-		return
-	}
-	claims, err := jwt.ParseToken(token)
-	if err != nil {
-		res.FailWithMessage(err.Error(), c)
-		return
-	}
+
+	_claims, _ := c.Get("claims")
+	claims := _claims.(*jwt.CustomClaims)
 
 	var page models.PageInfo
 	if err := c.ShouldBindQuery(&page); err != nil {
