@@ -5,7 +5,7 @@ import "gvb_server/models/ctype"
 // 用户表
 type UserModel struct {
 	MODEL
-	NikeName       string           `gorm:"size:36" json:"nike_name"`                                                              //对外昵称
+	NickName       string           `gorm:"size:36" json:"nick_name"`                                                              //对外昵称
 	UserName       string           `gorm:"size:36" json:"user_name"`                                                              //用户名
 	Password       string           `gorm:"size:128" json:"-"`                                                                     //这样可以不展示给前端，至于登录我可以另定义一个request                                                                    //密码
 	Avatar         string           `gorm:"size:256" json:"avatar_id"`                                                             //头像id

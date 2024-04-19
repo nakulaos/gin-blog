@@ -10,4 +10,5 @@ func UserRouter(enter *gin.RouterGroup) {
 	userApi := api.ApiGroupApp.UserApi
 	enter.POST("/user_login_email", userApi.UserLoginEmailView)
 	enter.GET("/user_list", middleware.JwtAuth(), userApi.UserListView)
+	enter.PUT("/user_update_userinfo", userApi.UserUpdateUserinfoView)
 }

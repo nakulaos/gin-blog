@@ -43,7 +43,7 @@ func CreateUser(Level string) {
 
 	userModel := models.UserModel{
 		UserName:   UserName,
-		NikeName:   NickName,
+		NickName:   NickName,
 		Password:   pwd.HashPassword(Password),
 		Email:      Email,
 		Addr:       "内网",

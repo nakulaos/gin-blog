@@ -33,7 +33,7 @@ func (userApi UserApi) UserLoginEmailView(c *gin.Context) {
 
 	//登陆成功，分发token
 	token, err := jwt.GenToken(jwt.JwtPayLoad{
-		Nickname: userLogin.NikeName,
+		Nickname: userLogin.NickName,
 		Role:     int(userLogin.Role),
 		UserID:   userLogin.ID,
 	})
