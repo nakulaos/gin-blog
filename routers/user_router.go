@@ -7,5 +7,6 @@ import (
 
 func UserRouter(enter *gin.RouterGroup) {
 	userApi := api.ApiGroupApp.UserApi
-	enter.POST("/userlogin_email", userApi.UserLoginEmailView)
+	enter.POST("/user_login_email", userApi.UserLoginEmailView)
+	enter.GET("/user_list", userApi.UserListView)
 }
