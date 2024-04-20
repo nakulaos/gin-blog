@@ -16,6 +16,12 @@ type UpdateRequest struct {
 }
 
 func (userApi UserApi) UserUpdateUserinfoView(c *gin.Context) {
+	_role, _ := c.Get("role")
+	role := _role.(int)
+	if role != 1 {
+		res.FailWithMessage("您不是管理员，权限受限!", c)
+		return
+	}
 	var cr UpdateRequest
 	if err := c.ShouldBindJSON(&cr); err != nil {
 		res.FailWithMyMessage(&cr, err, c)
