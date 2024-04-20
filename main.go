@@ -20,6 +20,9 @@ func main() {
 	core.InitLogger()
 	//连接数据库，初始化gorm
 	core.InitGorm()
+	//连接Redis，做jwt缓存，主要看过期时间
+	core.InitRedis()
+	//fmt.Println(global.Redis)
 
 	//命令行参数绑定
 	option := flag.Parse()

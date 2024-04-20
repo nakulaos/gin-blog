@@ -11,7 +11,7 @@ func main() {
 	core.InitLogger()
 
 	token, err := jwt.GenToken(jwt.JwtPayLoad{
-		Username: "zhangsan",
+		//Username: "zhangsan",
 		Nickname: "dada",
 		Role:     2,
 		UserID:   1,
