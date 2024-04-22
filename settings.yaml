@@ -42,9 +42,9 @@ qq:
   redirect: ""
 email:
   host: smtp.qq.com
-  port: 213
+  port: 465
   user: 1310138359@qq.com
-  password: xxx
+  password: bijabmhdvrxmgeeh
   default_from_email: 智超知道
   use_ssl: false
   user_tls: true

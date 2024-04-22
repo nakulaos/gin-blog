@@ -14,4 +14,5 @@ func UserRouter(enter *gin.RouterGroup) {
 	enter.PUT("/user_update_password", middleware.JwtAuth(), userApi.UserUpdatePasswordView)
 	enter.POST("/user_logout", middleware.JwtAuth(), userApi.UserLogoutView)
 	enter.DELETE("/user_delete", middleware.JwtAdmin(), userApi.UserDeleteView)
+	enter.POST("/user_bind_email", middleware.JwtAuth(), userApi.UserBindEmailView)
 }
