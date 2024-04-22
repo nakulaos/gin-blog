@@ -11,4 +11,5 @@ func MessageRouter(enter *gin.RouterGroup) {
 	enter = enter.Group("")
 	enter.Use(middleware.JwtAuth())
 	enter.POST("/message", messageApi.MessageSendView)
+	enter.GET("/message_all", messageApi.MessageAllView)
 }
