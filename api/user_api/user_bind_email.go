@@ -61,7 +61,7 @@ func (userApi UserApi) UserBindEmailView(c *gin.Context) {
 
 	//	fmt.Printf("%t %t", code, *cr.Code)
 	Code, _ := strconv.Atoi(*cr.Code)
-	fmt.Printf("%t %t", code, Code)
+	//fmt.Printf("%t %t", code, Code)
 	if code != int32(Code) {
 		res.FailWithMessage("验证码错误!", c)
 		return
