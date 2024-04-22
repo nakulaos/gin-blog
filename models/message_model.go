@@ -8,7 +8,7 @@ type MessageModel struct {
 	SendUserNickName string    `gorm:"size:42" json:"send_user_nick_name"` //
 	SendUserAvatar   string    `json:"send_user_avatar"`                   //
 
-	RevUserID       int       `gorm:"primaryKey" json:"rev_user_id"`     //接收人id
+	RevUserID       uint      `gorm:"primaryKey" json:"rev_user_id"`     //接收人id
 	RevUserModel    UserModel `gorm:"foreignKey:RevUserID" json:"-"`     //
 	RevUserNickName string    `gorm:"size:42" json:"rev_user_nick_name"` //
 	RevUserAvatar   string    `json:"rev_user_avatar"`                   //

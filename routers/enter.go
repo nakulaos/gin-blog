@@ -21,6 +21,7 @@ func InitRouter() *gin.Engine {
 	MenuRouter(EnterApi)
 	UserRouter(EnterApi)
 	TagRouter(EnterApi)
+	MessageRouter(EnterApi)
 
 	return Enter
 }
