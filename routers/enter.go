@@ -20,6 +20,7 @@ func InitRouter() *gin.Engine {
 	AdvertiseRouter(EnterApi)
 	MenuRouter(EnterApi)
 	UserRouter(EnterApi)
+	TagRouter(EnterApi)
 
 	return Enter
 }
