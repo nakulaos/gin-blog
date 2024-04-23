@@ -13,4 +13,5 @@ func MessageRouter(enter *gin.RouterGroup) {
 	enter.POST("/message", messageApi.MessageSendView)
 	enter.GET("/message_all", messageApi.MessageAllView)
 	enter.GET("/message_mine", messageApi.MessageMineView)
+	enter.POST("/message_record", messageApi.MessageRecordView)
 }

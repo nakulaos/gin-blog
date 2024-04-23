@@ -59,7 +59,7 @@ qiniu:
 jwt:
   secret: dengzhichao
   expires: 2
-  issuer: xxx
+  issuer: ZhiChaoDeng
 redis:
   ip: 127.0.0.1
   port: 6379
