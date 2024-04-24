@@ -13,6 +13,7 @@ func InitRouter() *gin.Engine {
 	Enter := gin.Default()
 	Enter.Use(middleware.Cors())
 	Enter.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
+	QQLoginRouter(Enter)
 
 	EnterApi := Enter.Group("/api")
 	SettingsRouter(EnterApi)

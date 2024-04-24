@@ -14,7 +14,7 @@ logger:
   log_in_console: true
 system:
   host: 127.0.0.1
-  port: 8080
+  port: 80
   env: release
 local_upload:
   upload_file_path: uploads/file
@@ -37,9 +37,9 @@ site_info:
   gitee_url: ""
   github_url: zhichao2000
 qq:
-  app_id: ""
-  key: ""
-  redirect: ""
+  app_id: 102107572
+  key: kXBfClIgv05AFKID
+  redirect: https://www.blog.dzcs.online/login/callback/qq
 email:
   host: smtp.qq.com
   port: 465
