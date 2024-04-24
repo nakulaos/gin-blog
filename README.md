@@ -79,4 +79,5 @@
 
 #### 6、看一眼数据库，最后一个用户即刚刚用qq注册登录的。使用唯一open_id做主键即可。
 
-![QQ截图20240424202212](https://github.com/DengZC2000/Go_Project/assets/153356545/73c06942-0c8c-4774-9297-cb5ffb91de43)
+![QQ截图20240424202752](https://github.com/DengZC2000/Go_Project/assets/153356545/df91fd31-1e86-4902-8320-c9e7151b0c98)
+
